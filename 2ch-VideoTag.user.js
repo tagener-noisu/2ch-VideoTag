@@ -155,23 +155,4 @@ var VideoTags = {
 	}
 };
 
-//unsafeWindow.VideoTags = VideoTags;
-
 document.addEventListener('DOMContentLoaded', VideoTags.init());
-
-/*
-<div class="images images-single">
-											
-	<figure class="image ">
-		<figcaption class="file-attr">
-			<a class="desktop" target="_blank" href="http://webm.land/media/tYM8.webm">webm.land/media/tYM8.webm</a> 
-			<img src="/makaba/templates/img/webm-logo.png" alt="webm file" id="webm-icon-1422975-be49178cea69b5fa3e925ab06c7f8c2c" width="50px"> 
-		</figcaption>
-		<div id="exlink-tYM8" class="image-link">
-			<a href="http://webm.land/media/tYM8.webm" target="_blank" name="expandfunc" onclick="return expand('tYm8','http://webm.land/media/tYM8.webm','http://webm.land/media/thumbnails/tYM8.jpeg',1920,1080,200,200)">
-				<img src="http://webm.land/media/thumbnails/tYM8.jpeg" alt="1920x1080" class="img preview webm-file " width="200">
-			</a>
-		</div>
-	</figure>
-</div>
-*/
