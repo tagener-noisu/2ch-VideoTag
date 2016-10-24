@@ -41,6 +41,12 @@ var Resources = {
 var VideoTags = {
 	init: function() {
 		this.replaceTags();
+		var obs = new MutationObserver(function (unused) {
+			VideoTags.replaceTags();
+		});
+		obs.observe(document.querySelector('.thread'), {
+			childList: true
+		});
 	},
 
 	replaceTags: function() {
