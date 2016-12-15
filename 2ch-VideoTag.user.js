@@ -154,3 +154,4 @@ var VideoTags = {
 };
 
 document.addEventListener('DOMContentLoaded', VideoTags.init());
+// vim:ts=4:sw=0:noet:
