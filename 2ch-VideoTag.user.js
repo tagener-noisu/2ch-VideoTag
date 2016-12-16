@@ -48,52 +48,35 @@ var VideoTags = {
 	},
 
 	replaceTags: function() {
-		var m = document.querySelectorAll('.post-message');
-		var regex = /\[video\]<a href="([^"]+.webm)"[^[]+\[\/video\](<br>)?/;
+		var links = document.querySelectorAll('a[href$=".webm"]');
+		for (var i = 0, len = links.length; i < len; ++i) {
+			var post = links[i].parentNode;
+			post.removeChild(links[i]);
 
-		for (var i = 0, len = m.length; i < len; ++i) {
-			var urls = [];
-			var url = null;
-			var h = m[i].innerHTML;
-			while (url = h.match(regex)) {
-				urls.push(url[1]);
-				h = h.replace(regex, '');
+			var images = post.parentNode.querySelector('.images');
+			if (images)
+				images.classList.remove('images-single');
+			else {
+				images = createElement('div', {
+					className: 'images images-single'
+				});
+				post.parentNode.insertBefore(images, post);
 			}
-			if (urls.length < 1) continue;
-			m[i].innerHTML = h;
 
-			var wrap = m[i].parentNode.querySelector('.images');
-			if (!wrap) {
-				wrap = document.createElement('div');
-				if (urls.length == 1)
-					wrap.className = "images images-single";
-				else
-					wrap.className = "images";
-				m[i].parentNode.insertBefore(wrap, m[i]);
-			}
-			this._appendPreviews(wrap, urls);
+			this._appendPreview(images, links[i].href);
 		}
 	},
 
-	_appendPreviews(node, urls) {
-		if (node.childNodes.length > 0)
-			node.classList.remove('images-single');
-		var prevs = this._genHtmlEl(urls);
-		for (var i in prevs)
-			node.appendChild(prevs[i]);
+	_appendPreview(node, url) {
+		node.appendChild(this._genHtmlEl(url));
 	},
 
-	_genHtmlEl: function(urls) {
-		var prevs = [];
-		for (var i = 0, len = urls.length; i < len; ++i) {
-			var uid = urls[i].match(/[^\/]+\.webm$/);
-			if (!uid)
-				continue;
-			uid = uid[0].replace('.', '-');
-			prevs.push(this._genPreview(urls[i], uid));
-		}
-
-		return prevs;
+	_genHtmlEl: function(url) {
+		var uid = url.match(/[^\/]+\.webm$/);
+		if (!uid)
+			return;
+		uid = uid[0].replace('.', '-');
+		return this._genPreview(url, uid);
 	},
 
 	_genPreview: function(url, uid) {
