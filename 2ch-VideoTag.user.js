@@ -48,7 +48,8 @@ var VideoTags = {
 	},
 
 	replaceTags: function() {
-		var links = document.querySelectorAll('a[href$=".webm"]');
+		var links = document.querySelectorAll(
+			'.post-message a[href$=".webm"]');
 		for (var i = 0, len = links.length; i < len; ++i) {
 			var post = links[i].parentNode;
 			post.removeChild(links[i]);
