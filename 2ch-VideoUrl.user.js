@@ -36,20 +36,19 @@ var Resources = {
 	webm_icon: "http://i.imgur.com/cv5AuEu.png"
 };
 
-var VideoTags = {
+var VideoUrls = {
 	init: function() {
-		this.replaceTags();
+		this.replaceUrls();
 		var obs = new MutationObserver(function (unused) {
-			VideoTags.replaceTags();
+			VideoUrls.replaceUrls();
 		});
 		obs.observe(document.querySelector('.thread'), {
 			childList: true
 		});
 	},
 
-	replaceTags: function() {
-		var links = document.querySelectorAll(
-			'.post-message a[href$=".webm"]');
+	replaceUrls: function() {
+		var links = document.querySelectorAll('.post-message a[href$=".webm"]');
 		for (var i = 0, len = links.length; i < len; ++i) {
 			var post = links[i].parentNode;
 			post.removeChild(links[i]);
@@ -137,5 +136,5 @@ var VideoTags = {
 	}
 };
 
-document.addEventListener('DOMContentLoaded', VideoTags.init());
+document.addEventListener('DOMContentLoaded', VideoUrls.init());
 // vim:ts=4:sw=0:noet:
