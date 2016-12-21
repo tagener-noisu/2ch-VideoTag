@@ -2,11 +2,11 @@
 // @name        2ch-VideoTag
 // @namespace   org.noisu
 // @include     https://2ch.hk/*/res/*
-// @version     1
+// @version     1.1.0
 // @grant       none
 // ==/UserScript==
 
-// Copyright (C) 2016  tagener-noisu<op4.renegat@gmail.com>
+// Copyright (C) 2016-2017 tagener-noisu <op4.renegat@gmail.com>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
