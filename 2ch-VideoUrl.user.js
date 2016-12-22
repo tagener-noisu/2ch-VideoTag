@@ -96,8 +96,7 @@ var VideoUrls = {
 		});
 
 		expand_a.addEventListener('click', function(e) {
-			expand(uid, url, Resources.webm_icon,
-				      800, 600, 200, 200);
+			expand(uid, url, Resources.webm_icon,800, 600, 200, 200);
 			e.preventDefault();
 		}, false);
 		var prev_img = createElement('img', {
