@@ -4,6 +4,8 @@
 // @include     https://2ch.hk/*/res/*
 // @version     1.1.0
 // @grant       none
+// @updateURL   https://github.com/tagener-noisu/2ch-VideoTag/raw/master/2ch-VideoUrl.meta.js
+// @downloadURL https://github.com/tagener-noisu/2ch-VideoTag/raw/master/2ch-VideoUrl.user.js
 // ==/UserScript==
 
 // Copyright (C) 2016-2017 tagener-noisu <op4.renegat@gmail.com>
