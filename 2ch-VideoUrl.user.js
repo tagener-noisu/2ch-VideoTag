@@ -42,11 +42,9 @@ var VideoUrls = {
 	init: function() {
 		this.replaceUrls();
 		var obs = new MutationObserver(function (unused) {
-			VideoUrls.replaceUrls();
-		});
+			VideoUrls.replaceUrls();});
 		obs.observe(document.querySelector('.thread'), {
-			childList: true
-		});
+			childList: true});
 	},
 
 	replaceUrls: function() {
@@ -56,12 +54,12 @@ var VideoUrls = {
 			post.removeChild(links[i]);
 
 			var images = post.parentNode.querySelector('.images');
-			if (images)
+			if (images) {
 				images.classList.remove('images-single');
+			}
 			else {
 				images = createElement('div', {
-					className: 'images images-single'
-				});
+					className: 'images images-single'});
 				post.parentNode.insertBefore(images, post);
 			}
 
@@ -88,26 +86,22 @@ var VideoUrls = {
 
 		var exlink = createElement('div', {
 			id: "exlink-" + uid,
-			className: "image-link"
-		});
+			className: "image-link"});
 
 		var expand_a = createElement('a', {
 			target: "_blank",
 			name: "expandfunc",
-			href: url,
-		});
+			href: url});
 
 		expand_a.addEventListener('click', function(e) {
-			expand(uid, url, Resources.webm_icon,800, 600, 200, 200);
-			e.preventDefault();
-		}, false);
+			expand(uid, url, Resources.webm_icon, 800, 600, 200, 200);
+			e.preventDefault();}, false);
 		var prev_img = createElement('img', {
 			src: Resources.webm_icon,
 			alt: "webm file",
 			className: "img preview webm-file",
 			width: "100",
-			height: "100"
-		});
+			height: "100"});
 		expand_a.appendChild(prev_img);
 		exlink.appendChild(expand_a);
 		res.appendChild(exlink);
@@ -121,15 +115,13 @@ var VideoUrls = {
 			className: "desktop",
 			target: "_blank",
 			href: url,
-			innerHTML: id
-		});
+			innerHTML: id});
 
 		var webm_logo = createElement('img', {
 			src: "/makaba/templates/img/webm-logo.png",
 			alt: "webm file",
 			id: "webm-icon-" + id,
-			width: "50px"
-		});
+			width: "50px"});
 
 		attr_wrap.appendChild(plain_a);
 		attr_wrap.appendChild(webm_logo);
