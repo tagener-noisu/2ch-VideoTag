@@ -2,7 +2,7 @@
 // @name        2ch-VideoTag
 // @namespace   org.noisu
 // @include     https://2ch.hk/*/res/*
-// @version     1.2.0
+// @version     1.2.1
 // @grant       none
 // @updateURL   https://github.com/tagener-noisu/2ch-VideoTag/raw/master/2ch-VideoUrl.meta.js
 // @downloadURL https://github.com/tagener-noisu/2ch-VideoTag/raw/master/2ch-VideoUrl.user.js
@@ -35,11 +35,23 @@ var createElement = function(tag, props) {
 }
 
 var Resources = {
-	webm_icon: "http://i.imgur.com/cv5AuEu.png"
+	webm_icon: "http://i.imgur.com/cv5AuEu.png",
+	webm_size_fix:
+"#html5video {\
+  height: inherit;\
+}\
+\
+#fullscreen-container {\
+  width: auto !important;\
+}"
 };
 
 var VideoUrls = {
 	init: function() {
+		var size_fix_css = createElement('style', {
+			innerHTML: Resources.webm_size_fix
+		});
+		document.head.appendChild(size_fix_css);
 		this.replaceUrls();
 		var obs = new MutationObserver(function (unused) {
 			VideoUrls.replaceUrls();});
